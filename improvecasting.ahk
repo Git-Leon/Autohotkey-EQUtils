@@ -1,70 +1,89 @@
 #Include EQUtils.ahk
 ^F2::
-	say("Casting SoW across from Newb Ramp in Ruins (-2000, +150)")
-	return
-
-
-
-main() {
 	Loop {
-		say("Casting SoW across from Newb Ramp in Ruins (-2000, +150)")
-		sendKeys("/o To receive buffs, open trade window, then close it.", 0)
-		
-		say("To receive buffs, open trade window, then close it.")
-		say("Summoning 3 pods of water.")
-		say("This should take approximately 24 seconds")
-		say("One moment, please...")
-		summonDrink(3)
-		
-		say("To receive buffs, open trade window, then close it.")
-		say("Practicing Divination.")
-		say("This should take approximately 24 seconds")
-		say("One moment, please . . .")
-		trueNorth(3)
-		
-		Loop, 6 {
-			say("To receive buffs, open trade window, then close it.")
-			say("Giving players 15 seconds to open trade window.")
-			sit(15)
-			say("I am ready to begin buffing!")			
-			say("[ %t ] is my current target.")
-			say("Buffs will be casted on [ %t ]")
-			improveCasting()
+		Loop, 3 {
+			trueNorth(1)
+			Loop, 2 {
+				buff()
+			}
 		}
+		summonDrink(1)
 	}
-	return	
-}
+	return
 
-improveCasting() {	
-	say("Casting Inner Fire on [ %t ]")
-	castSit(3,5,8)
+
+buff() {
+	targetNearest()
+	fleetingFury(1)
 	
-	say("Casting Spirit of Wolf on [ %t ]")
-	castSit(8,5,8) ;spirit of wolf
+	targetNearest()
+	spiritOfWolf(1)
 	
-	say("To receive buffs, open trade window, then close it.")
-	sendKeys("/tar Scaleskin", 2)
-	castSit(6,5,8) ;burst of flame
-		
-	sendKeys("/hug", 0)
-	sit(18)
+	
+	
+	targetNearest()
+	fleetingFury(1)
+	
+	targetNearest()
+	;innerFlame(1)
+	
+
+	
+	targetNearest()
+	fleetingFury(1)
+	
+	targetNearest()
+	spiritOfWolf(1)
+	
+
+	
+	targetNearest()
+	fleetingFury(1)
+	
+	targetNearest()
+	;dexterousAura(1)
+
+
+
+	targetNearest()
+	fleetingFury(1)
+	
+	targetNearest()
+	spiritOfWolf(1)
+
 	return
 }
 
-
-trueNorth(byref number) {
-	Loop, %number% {
-		stand()
-		castSit(2,5,8)
-	}
-}
 
 summonDrink(byref number) {
 	Loop, %number% {
 		stand()
 		do(2) ;forage
-		castSit(7,5,8)		
+		castSit(2,5,8)		
 		sendKeys("/autoi", 0)
 		sendKeys("/autoi", 0)
 	}
+}
+
+
+trueNorth(byref number) {
+	castSitLoop(2,5,8,number)
+}
+
+
+spiritOfWolf(byref number) {
+	castSitLoop(3,5,24,number)
+}
+
+innerFlame(byref number) {
+	castSitLoop(4,5,12, number)
+}
+
+
+fleetingFury(byref number) {
+	;castSitLoop(5,1,8,number)
+}
+
+dexterousAura(byref number) {
+	castSitLoop(6,5,12, number)
 }

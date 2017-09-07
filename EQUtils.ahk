@@ -1,10 +1,16 @@
+targetNearest() {
+	Send {F1}
+	Send {Numpad6}
+}
+
+
 stand() {
 	sendKeys("/stand", 0)
 }
 
-sit(byref x) {
+sit(byref sitDuration) {
 	stand()
-	sendKeys("/sit",x)
+	sendKeys("/sit",sitDuration)
 }
 
 do(byref number) {
@@ -14,24 +20,32 @@ do(byref number) {
 say(byref text) {
 	sendKeys("/say " text, 0)
 }
+
+castSitLoop(byref number, castDelay, sitDuration, loopCount) {
+	Loop, %loopCount% {
+		castSit(number, castDelay, sitDuration)
+	}
+}
 	
-castSit(byref number, castDelay, sitDelay) {
+castSit(byref number, castDelay, sitDuration) {
 	cast(number, castDelay)
-	sit(sitDelay)
+	sit(sitDuration)
 }
 
-cast(byref number, x) {
+cast(byref number, castDelay) {
 	stand()
-	sendKeys("/cast " number, x)
+	sendKeys("/cast " number, castDelay)
 }
 
-sendKeys(byref text, x){
+sendKeys(byref text, postDelay){
+	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest
+	
 	Send {Enter}
 	Clipboard = %text%	
 	SendInput ^v
 	Send {Enter}
 	Sleep 100
-	Loop, %x% {
+	Loop, %postDelay% {				
 		Sleep 1000
 	}
 	return

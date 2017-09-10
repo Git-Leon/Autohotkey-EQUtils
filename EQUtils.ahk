@@ -1,5 +1,18 @@
-targetNearest() {
+assist() {
+	sendKeys("/g Assisting [ %t ]", 0)
+	sendKeys("/as", 2)	
+}
+
+targetSelf() {
 	Send {F1}
+}
+
+targetNearestNPC() {
+	Send {Numpad5}
+}
+
+targetNearestPC() {
+	targetSelf()
 	Send {Numpad6}
 }
 

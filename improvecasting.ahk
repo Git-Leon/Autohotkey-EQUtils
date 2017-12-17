@@ -1,9 +1,24 @@
 #Include EQUtils.ahk
 ^F2::
-	healingDance()
-
+	canniDance()
+	return
 
 	
+canniDance() {
+	Loop {
+		castSitLoop(1,2,4,1)
+	}
+}
+
+eddieDance() {
+	Loop {
+		Send {F2}
+		healing(1)
+		
+		Send {F3}
+		healing(1)
+	}
+}
 
 	
 cycleMobsAttack() {
@@ -13,31 +28,32 @@ cycleMobsAttack() {
 	}
 }
 
-healingDance() {
+groupDance() {
 	Loop {
 		Send {F2}
 		assist()
 		drowsy()
-		Loop, 3 {
-			Send {F2}
-			healing(1)		
-		}		
+		
+		Send {F5}
+		healing(1)
+		
+		castSitLoop(2,3,4,5)
 	}
 }
 
 
 drowsy() {
-	sendKeys("/g Casting 'Drowsy' on [ %t]", 0)
-	sendKeys("/g Keep [ %t ] within casting range of me.", 0)
+	group("Casting 'Drowsy' on [ %t]")
+	group("Keep [ %t ] within casting range of me.")
 	castSitLoop(6, 4, 12, 1)
 }
 
 
 
 healing(byref numberOfCasts) {
-	sendKeys("/g Casting 'Healing' on [ %t]", 0)
-	sendKeys("/g [ %t ] stay in range", 0)
-	castSitLoop(3, 4, 28, numberOfCasts)
+	group("Casting 'Healing' on [ %t]")
+	group("[ %t ] stay in range")
+	castSitLoop(3, 4, 32, numberOfCasts)
 }
 
 
@@ -86,7 +102,7 @@ summonDrink(byref numberOfCasts) {
 
 
 trueNorth(byref numberOfCasts) {
-	castSitLoopTargetNearest(2,5,8,numberOfCasts)
+	castSitLoopTargetNearest(2,2,5,numberOfCasts)
 }
 
 spiritOfWolf(byref numberOfCasts) {

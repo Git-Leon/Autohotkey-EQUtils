@@ -1,5 +1,5 @@
 assist() {
-	sendKeys("/g Assisting [ %t ]", 0)
+	group("Assisting [ %t ]")
 	sendKeys("/as", 2)	
 }
 
@@ -30,12 +30,24 @@ do(byref number) {
 	sendKeys("/do " number, 0)
 }
 
+
+group(byref text) {
+	;sendKeys("/g " text, 0)
+}
+
 say(byref text) {
 	sendKeys("/say " text, 0)
 }
 
 castSitLoop(byref number, castDelay, sitDuration, loopCount) {
 	Loop, %loopCount% {
+		castSit(number, castDelay, sitDuration)
+	}
+}
+
+
+castSitCycle(byref number, castDelay, sitDuration) {
+	Loop {
 		castSit(number, castDelay, sitDuration)
 	}
 }
@@ -56,8 +68,10 @@ sendKeys(byref text, postDelay){
 	Send {Enter}
 	Clipboard = %text%	
 	SendInput ^v
+	Sleep 50
 	Send {Enter}
 	Sleep 100
+	
 	Loop, %postDelay% {				
 		Sleep 1000
 	}

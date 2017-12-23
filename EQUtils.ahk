@@ -32,7 +32,7 @@ do(byref number) {
 
 
 group(byref text) {
-	;sendKeys("/g " text, 0)
+	sendKeys("/g " text, 0)
 }
 
 say(byref text) {
@@ -68,7 +68,7 @@ sendKeys(byref text, postDelay){
 	Send {Enter}
 	Clipboard = %text%	
 	SendInput ^v
-	Sleep 50
+	Sleep 20
 	Send {Enter}
 	Sleep 100
 	

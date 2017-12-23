@@ -1,6 +1,16 @@
+autoInventory(byref numberOfItems) {
+	Loop, %numberOfItems% {
+		sendKeys("/autoi", 0)
+	}
+}
+
 assist() {
 	group("Assisting [ %t ]")
-	sendKeys("/as", 2)	
+	sendKeys("/as", 2)
+}
+
+target(byref name) {
+	sendKeys("/tar " %name%, 0)
 }
 
 targetSelf() {

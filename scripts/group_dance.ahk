@@ -1,4 +1,5 @@
-#Include EQUtils.ahk
+#SingleInstance Force
+#Include EQUtilsCommandLine.ahk
 ^F4::
 	SetCapsLockState, off
 	groupDance()

@@ -1,5 +1,5 @@
-#Include EQUtils.ahk
-^F2::
+#Include ../EQUtilsCommandLine.ahk
+^F2:: ; CTRL + F2 to run the script
 	main()
 	return
 	
@@ -13,13 +13,13 @@ main() {
 		say("Summoning 3 pods of water.")
 		say("This should take approximately 24 seconds")
 		say("One moment, please...")
-		summonDrink(3)
+		;summonDrink(3)
 		
 		say("To receive buffs, open trade window, then close it.")
 		say("Practicing Divination.")
 		say("This should take approximately 24 seconds")
 		say("One moment, please . . .")
-		trueNorth(3)
+		;trueNorth(3)
 		
 		Loop, 6 {
 			say("To receive buffs, open trade window, then close it.")
@@ -28,7 +28,7 @@ main() {
 			say("I am ready to begin buffing!")			
 			say("[ %t ] is my current target.")
 			say("Buffs will be casted on [ %t ]")
-			improveCasting()
+			;improveCasting()
 		}
 	}
 	return	

@@ -16,13 +16,19 @@ rightwardRightClick(byref numberOfUnits, xOrigin, yOrigin) {
 }
 
 leftClick(byref xOrigin, yOrigin) {
-	click(left, xOrigin, yOrigin)
+	click(0, xOrigin, yOrigin)
 }
 
 rightClick(byref xOrigin, yOrigin) {
-	click(right, xOrigin, yOrigin)
+	click(1, xOrigin, yOrigin) ; TODO - resolve this line
 }
 
 click(byref rightClickFlag, xOrigin, yOrigin) {
-	MouseClick, %rightClickFlag%,  xOrigin,  yOrigin	
+	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest
+	if(%rightClickFlag% == 0) {
+		MouseClick, left,  xOrigin,  yOrigin
+	} else {
+		MouseClick, right,  xOrigin,  yOrigin
+	}
+	Sleep, 100
 }

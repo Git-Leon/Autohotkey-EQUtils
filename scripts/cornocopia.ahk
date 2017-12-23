@@ -1,5 +1,5 @@
 #SingleInstance Force
-#Include EQUtils.ahk
+#Include ../EQUtilsCommandLine.ahk
 ^F2::
 	SetCapsLockState, off
 	Loop, 60 {

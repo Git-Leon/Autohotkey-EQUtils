@@ -1,0 +1,7 @@
+#Include ../EQUtilsClick.ahk
+
+lootMob() {
+	SetCapsLockState, off
+	rightClick(40, 425)
+	clickBox(4, 2, 40, 425)
+}

@@ -20,15 +20,19 @@ leftClick(byref xOrigin, yOrigin) {
 }
 
 rightClick(byref xOrigin, yOrigin) {
-	click(1, xOrigin, yOrigin) ; TODO - resolve this line
+	click(1, xOrigin, yOrigin)
 }
 
 click(byref rightClickFlag, xOrigin, yOrigin) {
 	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest
-	if(%rightClickFlag% == 0) {
+	
+	MouseMove, xOrigin, yOrigin ; move to coordinate
+	Sleep, 250
+	
+	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest	
+	if(%rightClickFlag% == 0) {		
 		MouseClick, left,  xOrigin,  yOrigin
 	} else {
 		MouseClick, right,  xOrigin,  yOrigin
 	}
-	Sleep, 100
 }

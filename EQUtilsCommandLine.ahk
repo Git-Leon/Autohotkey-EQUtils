@@ -9,8 +9,8 @@ assist() {
 	sendKeys("/as", 2)
 }
 
-target(byref name) {
-	sendKeys("/tar " %name%, 0)
+target(byref name, delay) {
+	sendKeys("/tar " %name%, %delay%)
 }
 
 targetSelf() {
@@ -75,7 +75,7 @@ cast(byref number, castDelay) {
 sendKeys(byref text, postDelay){
 	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest
 	
-	Send {Enter}
+	Send +{Down} ; shift + down-arrow
 	Clipboard = %text%	
 	SendInput ^v
 	Sleep 20

@@ -4,15 +4,15 @@
 
 ^F2::	
 	Loop {		
-		stand()
 		autoInventory(5)
-		target("an")
+		stand()
+		target("an", 2)
 		sendKeys("/loot", 2)
 		lootMob()
 
 		
 		Send {ESC}
-		sit(60)
+		sit(30)
 	}
 
 	

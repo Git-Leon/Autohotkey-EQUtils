@@ -1,14 +1,9 @@
-#SingleInstance Force
 #Include ../EQUtilsCommandLine.ahk
-^F2::
-	SetCapsLockState, off
-	Loop, 60 {
-		sendKeys("/autoi", 0)
-		sendKeys("/autoi", 0)
-		castSitLoop(2, 4, 5, 1)
-		castSitLoop(3, 4, 5, 1)		
+
+cornocopia(byref numberOfTimes) {
+	Loop, %numberOfTimes% {
+	castSitLoop(6, 4, 5, 1)
+	castSitLoop(7, 4, 5, 1)
+	autoInventory(3)
 	}
-	
-	
-^F3::
-	run AutoHotkey.exe cornocopia.ahk ; create new
+}

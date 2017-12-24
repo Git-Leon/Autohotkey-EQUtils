@@ -1,7 +1,7 @@
 ^F2::
-WinWait, EverQuest, 
-;IfWinNotActive, EverQuest, , WinActivate, EverQuest, 
-WinWaitActive, EverQuest, 
+WinWait, EverQuest,
+;IfWinNotActive, EverQuest, , WinActivate, EverQuest,
+WinWaitActive, EverQuest,
 
 
 ;1360 = center of left column of bag
@@ -43,7 +43,7 @@ leftMouseClick(byref xCoord, yCoord) {
 
 leftMouseClickWait(byref xCoord, yCoord, waitDuration) {
 	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest
-	
+
 
 	Send, {CTRLDOWN}
 	MouseClick, left, %xCoord%, %yCoord%

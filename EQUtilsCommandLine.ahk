@@ -9,12 +9,33 @@ assist() {
 	sendKeys("/as", 2)
 }
 
+bagsClose() {
+	waitForEverQuest()
+	Send, n
+}
+
+bagsOpen() {
+	waitForEverQuest()
+	Send, b
+}
+
+escape(byref numberOfTimes) {
+	Loop, %numberOfTimes% {
+		waitForEverQuest()
+		Send {ESC}
+	}
+}
+
 target(byref name, delay) {
-	sendKeys("/tar " %name%, %delay%)
+	sendKeys("/tar " name, delay)
 }
 
 targetSelf() {
 	Send {F1}
+}
+
+targetPet() {
+	sendKeys("/pet target", 0)
 }
 
 targetNearestNPC() {
@@ -57,11 +78,9 @@ castSitLoop(byref number, castDelay, sitDuration, loopCount) {
 
 
 castSitCycle(byref number, castDelay, sitDuration) {
-	Loop {
-		castSit(number, castDelay, sitDuration)
-	}
+	castSitLoop(number, castDelay, sitDuration, 999)
 }
-	
+
 castSit(byref number, castDelay, sitDuration) {
 	cast(number, castDelay)
 	sit(sitDuration)
@@ -69,21 +88,31 @@ castSit(byref number, castDelay, sitDuration) {
 
 cast(byref number, castDelay) {
 	stand()
+	sendKeys("/cast " number, .5) ; in case of fizzle
 	sendKeys("/cast " number, castDelay)
 }
 
 sendKeys(byref text, postDelay){
-	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest
-	
+	_sendKeys(text, postDelay * 1000)
+}
+
+
+_sendKeys(byref text, postDelay){
+	waitForEverQuest()
+
 	Send +{Down} ; shift + down-arrow
-	Clipboard = %text%	
+	Clipboard = %text%
 	SendInput ^v
 	Sleep 20
 	Send {Enter}
 	Sleep 100
-	
-	Loop, %postDelay% {				
-		Sleep 1000
-	}
+
+	Sleep %postDelay%
+
 	return
+}
+
+
+waitForEverQuest() {
+	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest
 }

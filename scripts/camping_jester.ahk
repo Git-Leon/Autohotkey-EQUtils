@@ -1,3 +1,5 @@
+#SingleInstance Force
+
 #Include ../EQUtilsCommandLine.ahk
 #Include ../EQUtilsClick.ahk
 #Include ./loot_mob.ahk
@@ -12,7 +14,7 @@
 
 		
 		Send {ESC}
-		sit(30)
+		sit(30)		
 	}
 
 	

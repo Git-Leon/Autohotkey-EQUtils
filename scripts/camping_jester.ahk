@@ -6,25 +6,27 @@
 #Include ./cornocopia.ahk
 
 ^F2:: ; CTRL + F2 to start
-Loop {
-	cornocopia(1)
-	Loop, 2 {
-		castSit(2,7,10) ; burnout
-		_buffUp(3)
-	}
-}
-
-
+	campJester()
 
 ^+F2:: ; CTRL + Shift + F2 to restart
 	run AutoHotkey.exe camping_jester.ahk ; create new
 
+^F3:: ; TESTS
+	_lootUp(5)
 
-
+campJester() {
+	Loop {
+		cornocopia(1)
+		Loop, 2 {
+			castSit(2,7,10) ; burnout
+			_buffUp(3)
+		}
+	}
+}
 
 _buffUp(byref numberOfTimes) {
 	Loop, %numberOfTimes% {
-		target("Leonium", 2)
+		targetSelf()
 		castSit(3,4,10) ; inferno shield
 
 		targetPet()

@@ -1,11 +1,12 @@
 #Include EQUtilsCommandLine
 
+
 gate() {
-	cast(1, 5)
+	firstPage()
 }
 
 cannibalize() {
-	
+
 }
 
 greaterHealing() {

@@ -5,6 +5,7 @@ lootMob() {
 	stand()
 	_lootMob()
 
+	bagsClose()
 	escape(20)
 	Sleep, 500
 
@@ -16,5 +17,5 @@ lootMob() {
 _lootMob() {
 	rightClick(40, 425)
 	Sleep, 1500
-	clickBox(8, 1, 40, 425)
+	clickBoxDefaultOffset(8, 1, 40, 425)
 }

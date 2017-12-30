@@ -1,18 +1,27 @@
 ; right click a box, then shift cursor to box to the right.
 ; then shift cursor down and repeat
-clickBox(byref numberOfUnitsX, numberOfUnitsY, xOrigin, yOrigin) {
+clickBoxDefaultOffset(byref numberOfUnitsX, numberOfUnitsY, xOrigin, yOrigin) {
+	clickBox(numberOfUnitsX, numberOfUnitsY, 40, 40, xOrigin, yOrigin)
+}
+
+
+
+; right click a box, then shift cursor to box to the right.
+; then shift cursor down and repeat
+clickBox(byref numberOfUnitsX, numberOfUnitsY, xOffset, yOffset, xOrigin, yOrigin) {
 	loopNumber = 0
 	while(loopNumber < numberOfUnitsY){
-		_rightwardRightClick(numberOfUnitsX, xOrigin, yOrigin + loopNumber*40)
+		rightwardRightClick(numberOfUnitsX, xOffset, xOrigin, yOrigin + loopNumber * yOffset)
 		loopNumber := loopNumber + 1
 	}
 }
 
+
 ; right click a box, then shift cursor to box to the right.
-_rightwardRightClick(byref numberOfUnits, xOrigin, yOrigin) {
+rightwardRightClick(byref numberOfUnits, xOffset, xOrigin, yOrigin) {
 	loopNumber = 0
 	while(loopNumber < numberOfUnits){
-		rightClick(xOrigin + loopNumber*40,  yOrigin)
+		rightClick(xOrigin + loopNumber * xOffset,  yOrigin)
 		Sleep, 100
 		loopNumber := loopNumber + 1
 	}

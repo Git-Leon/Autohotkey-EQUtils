@@ -9,28 +9,49 @@ assist() {
 	sendKeys("/as", 2)
 }
 
-bagsClose() {
+spellBookOpen() {
+	stand()
+	sendKeys("/book", 0)
+}
+
+bagsClose() { ; TODO - move to different utils
 	waitForEverQuest()
 	Send, n
 }
 
-bagsOpen() {
+bagsOpen() { ; TODO - move to different utils
 	waitForEverQuest()
 	Send, b
 }
 
-escape(byref numberOfTimes) {
+escape(byref numberOfTimes) { ; TODO - move to different utils
 	Loop, %numberOfTimes% {
 		waitForEverQuest()
 		Send {ESC}
 	}
 }
 
+leftArrow(byref numberOfTimes) {
+	Loop, %numberOfTimes% {
+		waitForEverQuest()
+		Send {Left}
+	}
+}
+
+rightArrow(byref numberOfTimes) {
+	Loop, %numberOfTimes% {
+		waitForEverQuest()
+		Send {Right}
+	}
+}
+
+
 target(byref name, delay) {
 	sendKeys("/tar " name, delay)
 }
 
 targetSelf() {
+	waitForEverQuest()
 	Send {F1}
 }
 
@@ -39,6 +60,7 @@ targetPet() {
 }
 
 targetNearestNPC() {
+	waitForEverQuest()
 	Send {Numpad5}
 }
 
@@ -86,10 +108,17 @@ castSit(byref number, castDelay, sitDuration) {
 	sit(sitDuration)
 }
 
+
 cast(byref number, castDelay) {
+	sing(number, 0.5)
+	sing(number, castDelay)
+}
+
+sing(byref number, singDelay) {
 	stand()
-	sendKeys("/cast " number, .5) ; in case of fizzle
-	sendKeys("/cast " number, castDelay)
+	sendKeys("/stops", 0)
+	sendKeys("/cast " number, singDelay)
+	sendKeys("/dance", 0)
 }
 
 sendKeys(byref text, postDelay){
@@ -105,7 +134,7 @@ _sendKeys(byref text, postDelay){
 	SendInput ^v
 	Sleep 20
 	Send {Enter}
-	Sleep 100
+	Sleep 50
 
 	Sleep %postDelay%
 

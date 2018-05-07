@@ -1,8 +1,10 @@
-#Include EQUtilsCommandLine
+#Include ../EQUtilsCommandLine.ahk
+
+spellBook := new SpellBook(221,802)
 
 
 gate() {
-	firstPage()
+	spellBook.goToFirstPage(1)
 }
 
 cannibalize() {

@@ -1,9 +1,9 @@
 #SingleInstance Force
 
-#Include ./../EQUtilsCommandLine.ahk
-#Include ./../EQUtilsClick.ahk
-#Include loot_mob.ahk
-#Include cornocopia.ahk
+#Include ./../../EQUtilsCommandLine.ahk
+#Include ./../../EQUtilsClick.ahk
+#Include ../loot_mob.ahk
+#Include ../cornocopia.ahk
 SetCapsLockState, off
 
 
@@ -15,7 +15,7 @@ SetCapsLockState, off
 	run AutoHotkey.exe camping_jester.ahk ; create new
 
 ^F3:: ; TESTS
-	emote("patiently waits for jester")
+	_lootUp(5)
 
 campJester() {
 	Loop {
@@ -24,17 +24,16 @@ campJester() {
 			castSit(2,7,10) ; burnout
 			_buffUp(3)
 		}
-		emote("patiently waits for the undead jester's presence.")
 	}
 }
 
 _buffUp(byref numberOfTimes) {
 	Loop, %numberOfTimes% {
 		targetSelf()
-		castSit(3,3,10) ; inferno shield
+		castSit(3,4,10) ; inferno shield
 
 		targetPet()
-		castSit(3,3,5) ; inferno shield
+		castSit(3,4,5) ; inferno shield
 		_lootUp(3)
 	}
 }

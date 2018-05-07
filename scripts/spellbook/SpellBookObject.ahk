@@ -3,7 +3,7 @@
 #Include ../../EQUtilsClick.ahk
 
 ^F3:: ; TESTS
-  myInstance := new SpellBook(221,802)
+  myInstance := new SpellBook(285,400); coordinate of top left corner of book
   ;myInstance.goToLastPage()
   ;myInstance.clearGems()
 
@@ -42,6 +42,10 @@ class SpellBook {
     } else { ; if odd
       rightArrow( (number/2) - 1)
     }
+  }
+  
+  memorizeSpell(byref rowNumber, columnNumber) {
+	
   }
 
   clearGems() {

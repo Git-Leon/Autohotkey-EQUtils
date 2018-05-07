@@ -1,8 +1,10 @@
 #SingleInstance Force
 #Include ../../EQUtilsCommandLine.ahk
-^F2::
+^!1::
 	SetCapsLockState, off
-	castSitCycle(2,1.5,5)
+	castSitCycle(2,1.2,6)
 
-^+F2::
-	run AutoHotkey.exe canni_dance.ahk ; create new
+
+canniDance(byref numberOfTimes) {
+	castSitLoop(2,1.5,6, %numberOfTimes%)
+}

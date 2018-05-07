@@ -4,6 +4,10 @@ autoInventory(byref numberOfItems) {
 	}
 }
 
+attackOn() {
+	sendKeys("/attack on", 0)
+}
+
 assist() {
 	group("Assisting [ %t ]")
 	sendKeys("/as", 2)
@@ -45,6 +49,10 @@ rightArrow(byref numberOfTimes) {
 	}
 }
 
+tab() {
+	waitForEverQuest()
+	Send {TAB}
+}
 
 target(byref name, delay) {
 	sendKeys("/tar " name, delay)
@@ -69,7 +77,9 @@ targetNearestPC() {
 	Send {Numpad6}
 }
 
-
+emote(byref text) {
+	sendKeys("/e " text, 0)
+}
 stand() {
 	sendKeys("/stand", 0)
 }
@@ -114,11 +124,14 @@ cast(byref number, castDelay) {
 	sing(number, castDelay)
 }
 
+petAttack() {
+	sendKeys("/pet attack", 0)
+}
+
 sing(byref number, singDelay) {
 	stand()
 	sendKeys("/stops", 0)
 	sendKeys("/cast " number, singDelay)
-	sendKeys("/dance", 0)
 }
 
 sendKeys(byref text, postDelay){
@@ -134,13 +147,16 @@ _sendKeys(byref text, postDelay){
 	SendInput ^v
 	Sleep 20
 	Send {Enter}
-	Sleep 50
+	Sleep 20
 
 	Sleep %postDelay%
 
 	return
 }
 
+wait(byref duration) {
+	sendKeys("/;Waiting 90 seconds",90)
+}
 
 waitForEverQuest() {
 	IfWinNotActive, EverQuest, , WinWaitActive, EverQuest

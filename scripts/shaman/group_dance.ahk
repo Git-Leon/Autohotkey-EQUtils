@@ -1,5 +1,5 @@
 #SingleInstance Force
-#Include EQUtilsCommandLine.ahk
+#Include ../../EQUtilsCommandLine.ahk
 ^F4::
 	SetCapsLockState, off
 	groupDance()
@@ -9,26 +9,34 @@
 
 groupDance() {
 	Loop {
-		Send {F2}
-		assist()
-		petAttack()
-		
-		Send {F2}
-		healing(1)
+		haste("Tchar")
+		Loop, 5 {
+			Send {F4}
+			assist()
+			petAttack()
+			
+			target("Tchar", 1)
+			healing(1)			
+		}
 	}
 }	
 
 
 
-petAttack() {
-	group("Sending pet to attack [ %t ].")
-	sendKeys("/pet attack", 0)
-}
 
 drowsy() {
 	group("Casting 'Drowsy' on [ %t]")
 	group("Keep [ %t ] within casting range of me.")
 	castSitLoop(6, 4, 12, 1)
+}
+
+haste(byref name) {
+	target(name, 1)
+	group("Casting Haste on [ %t ] within the next 5 seconds.")	
+	group("[ %t ] stay close.")
+	sendKeys("; waiting 5 seconds...", 5)
+	
+	castSit(4, 3, 0)
 }
 
 

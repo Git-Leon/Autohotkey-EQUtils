@@ -27,6 +27,17 @@ rightwardRightClick(byref numberOfUnits, xOffset, xOrigin, yOrigin) {
 	}
 }
 
+
+; right click a box, then shift cursor to box to the right.
+rightwardLeftClick(byref numberOfUnits, xOffset, xOrigin, yOrigin) {
+	loopNumber = 0
+	while(loopNumber < numberOfUnits){
+		leftClick(xOrigin + loopNumber * xOffset,  yOrigin)
+		Sleep, 100
+		loopNumber := loopNumber + 1
+	}
+}
+
 ; left click at specified x and y coordinate
 leftClick(byref xOrigin, yOrigin) {
 	_click(0, xOrigin, yOrigin)

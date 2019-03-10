@@ -1,12 +1,23 @@
 #SingleInstance Force
 #Include ../../EQUtilsCommandLine.ahk
-^F4::
+^!3::
 	SetCapsLockState, off
-	groupDance()
+	groupDance1()
 	
-^F5::
-	run AutoHotkey.exe group_dance.ahk ; create new
 
+groupDance1() {
+	Loop {
+		Loop, 5 {
+			target("Ceratud", 1)
+			assist()
+			petAttack()
+			castSit(4, 3, 20)
+		}
+	}
+}	
+	
+	
+	
 groupDance() {
 	Loop {
 		haste("Tchar")

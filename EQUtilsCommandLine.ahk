@@ -95,7 +95,7 @@ do(byref number) {
 
 
 group(byref text) {
-	sendKeys("/g " text, 0)
+	;sendKeys("/g " text, 0)
 }
 
 say(byref text) {
@@ -130,7 +130,7 @@ petAttack() {
 
 sing(byref number, singDelay) {
 	stand()
-	sendKeys("/stops", 0)
+	;sendKeys("/stops", 0)
 	sendKeys("/cast " number, singDelay)
 }
 
@@ -145,9 +145,9 @@ _sendKeys(byref text, postDelay){
 	Send +{Down} ; shift + down-arrow
 	Clipboard = %text%
 	SendInput ^v
-	Sleep 20
+	Sleep 75
 	Send {Enter}
-	Sleep 20
+	Sleep 75
 
 	Sleep %postDelay%
 

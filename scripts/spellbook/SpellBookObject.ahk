@@ -44,8 +44,25 @@ class SpellBook {
     }
   }
   
-  memorizeSpell(byref rowNumber, columnNumber) {
-	
+  memorizeSpell(byref gemNumber, rowNumber, columnNumber) {
+    gem := spellGemBar.getGem(gemNumber);
+    xGemCoordinate := gem.getCoordinateX()
+    yGemCoordinate := gem.getCoordinateY()
+
+    xInitialOffset := 60
+    yInitialOffset := 30
+
+    xOffsetPerColumn := 85
+    yOffsetPerRow := 65
+
+    xOffset := xInitialOffset + (columnNumber * xOffsetPerColumn)
+    yOffset := yInitialOffset + (columnNumber * yOffsetPerRow)
+
+    xCoordinateOfSpell := this.xOrigin + xOffset
+    yCoordinateOfSpell := this.yOrigin + yOffset
+
+    leftClick(xCoordinateOfSpell, yCoordinateOfSpell)
+    leftClick(xGemCoordinate, yGemCoordinate)
   }
 
   clearGems() {

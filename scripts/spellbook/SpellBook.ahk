@@ -34,7 +34,7 @@ class SpellBook {
     yGemCoordinate := gem.getCoordinateY()
 
     rightClickRepeat(xGemCoordinate, yGemCoordinate, 5) ; forget gem
-    leftClickRepeat(xCoordinateOfSpell, yCoordinateOfSpell, 8) ; fetch spell from book    
+    leftClickRepeat(xCoordinateOfSpell, yCoordinateOfSpell, 5) ; fetch spell from book    
     leftClickRepeat(xGemCoordinate, yGemCoordinate, 15) ; memorize spell in this gem
   }
 

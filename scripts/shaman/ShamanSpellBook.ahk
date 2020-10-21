@@ -33,10 +33,22 @@ class ShamanSpellBook {
 		this.spellBook.memorizeSpell(5, 3, 4)
 	}
 
-	poison() {
+	taintedBreath() {
 		this.spellBook.goToPage(2)
 		this.spellBook.memorizeSpell(6, 2, 2)
 	}
+
+	sicken() {
+		this.spellBook.goToPage(2)
+		this.spellBook.memorizeSpell(7, 2, 3)
+	}
+
+	
+	frostRift() {
+		this.spellBook.goToPage(2)
+		this.spellBook.memorizeSpell(8, 2, 1)
+	}
+
 
 	nuke() {
 		this.spellBook.goToPage(2)

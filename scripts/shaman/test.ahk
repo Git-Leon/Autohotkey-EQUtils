@@ -14,5 +14,6 @@
   shamanSpellBook.healing()
   shamanSpellBook.root()
   shamanSpellBook.slow()
-  shamanSpellBook.poison()
-  
+  shamanSpellBook.taintedBreath()
+  shamanSpellBook.sicken()
+  shamanSpellBook.frostRift()

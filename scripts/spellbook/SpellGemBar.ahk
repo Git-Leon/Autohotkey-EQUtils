@@ -6,29 +6,32 @@ class SpellGemBar {
         this.yCoordinate := yCoordinate
         this.spellGems := []
         spellNumber := 0
-        Loop, 8 {            
+        Loop % 8 {            
             spellNumber++
-            spellGemY := yCoordinate + 15 + (30 * (spellNumber-1))
-            spellGemX := xCoordinate + 40
+            spellGemY := this.yCoordinate + 15 + (30 * (spellNumber-1))
+            spellGemX := this.xCoordinate + 40
             spellGem := new SpellGem(spellGemX, spellGemY)
-            this.spellGems.Push(spellGem)
+            this.spellGems[spellNumber] := spellGem
+            ; this.spellGems.Push(spellGem)
         }
 	}
 
-    getGem(byref spellNumber) {
+    getGem(byref spellNumber) {    
         return this.spellGems[spellNumber]
     }
 
     
     toString() {
-        output := ""
+        output := "SpellGemBar{"
+        output .= "xCoordinate = " . this.xCoordinate
+        output .= ", yCoordinate = " . this.yCoordinate
         spellNumber := 0
-        Loop, 8 {
+        Loop % 8 {
             spellNumber++
             gem :=  this.getGem(spellNumber)
             gemStr := gem.toString()
             output .= gemStr
         }
-        return output
+        return output . "}"
 	}
 }

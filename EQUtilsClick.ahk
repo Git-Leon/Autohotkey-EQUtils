@@ -39,6 +39,27 @@ rightwardLeftClick(byref numberOfUnits, xOffset, xOrigin, yOrigin) {
 }
 
 ; left click at specified x and y coordinate
+leftClickRepeat(byref xOrigin, yOrigin, numberOfRepeats) {
+	loopNumber = 0
+	while(loopNumber < numberOfRepeats){
+		leftClick(xOrigin, yOrigin)
+		Sleep, 100
+		loopNumber := loopNumber + 1
+	}
+}
+
+
+; left click at specified x and y coordinate
+rightClickRepeat(byref xOrigin, yOrigin, numberOfRepeats) {
+	loopNumber = 0
+	while(loopNumber < numberOfRepeats){
+		rightClick(xOrigin, yOrigin)
+		Sleep, 100
+		loopNumber := loopNumber + 1
+	}
+}
+
+; left click at specified x and y coordinate
 leftClick(byref xOrigin, yOrigin) {
 	_click(0, xOrigin, yOrigin)
 }

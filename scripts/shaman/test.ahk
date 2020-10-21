@@ -1,5 +1,5 @@
 #SingleInstance Force
-#Include ./ShamanSpellBook.ahk
+#Include ../shaman/ShamanSpellBook.ahk
 
 
 ^F2:: ; TESTS
@@ -13,7 +13,4 @@
   shamanSpellBook.root()
   shamanSpellBook.slow()
   shamanSpellBook.poison()
-  ; myInstance.goToLastPage()
-  ; myInstance.goToFirstPage()
-  ; myInstance.memorizeSpell(1, 1, 1)
   

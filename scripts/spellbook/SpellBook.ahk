@@ -3,29 +3,20 @@
 #Include ../../EQUtilsClick.ahk
 #Include ../spellbook/SpellGemBar.ahk
 
-^F3:: ; TESTS
-  spellGems := new SpellGemBar(115, 665)
-  myInstance := new SpellBook(spellGems, 320,530) ; coordinate of top left corner of book
-  ; myInstance.goToLastPage()
-  ; myInstance.goToFirstPage()
-  myInstance.memorizeSpell(1, 1, 1)
-  
-  return
-
-^+F3:: ; CTRL + Shift + F3 to restart
-  	run AutoHotkey.exe SpellBookObject.ahk ; create new
-
-
 
 class SpellBook {
 	__New(byref spellGemBar, xOrigin, yOrigin) {
+    ; MsgBox % "New SpellBook" . spellGemBar.toString()
     this.spellGemBar := spellGemBar
     this.xOrigin := xOrigin
     this.yOrigin := yOrigin
 	}
 
+  setSpellGemBar(byref spellGemBar) {
+    this.spellGemBar := spellGemBar
+  }
+
   memorizeSpell(byref gemNumber, rowNumber, columnNumber) {
-    this.openBook()
     xInitialOffset := 65
     yInitialOffset := 35
 
@@ -38,19 +29,15 @@ class SpellBook {
     xCoordinateOfSpell := this.xOrigin + xOffset
     yCoordinateOfSpell := this.yOrigin + yOffset
 
-    gem := this.spellGemBar.getGem(gemNumber)
+    gemBar := this.spellGemBar
+    gem := gemBar.getGem(gemNumber)
     xGemCoordinate := gem.getCoordinateX()
     yGemCoordinate := gem.getCoordinateY()
 
-    leftClick(xCoordinateOfSpell, yCoordinateOfSpell) ; fetch spell from book
-    leftClick(xCoordinateOfSpell, yCoordinateOfSpell) ; fetch spell from book
-
-    rightClick(xGemCoordinate, yGemCoordinate) ; forget gem
-    rightClick(xGemCoordinate, yGemCoordinate) ; forget gem
-
-    leftClick(xGemCoordinate, yGemCoordinate) ; memorize spell in this gem
-    leftClick(xGemCoordinate, yGemCoordinate) ; memorize spell in this gem
-    
+    this.openBook()
+    leftClickRepeat(xCoordinateOfSpell, yCoordinateOfSpell, 8) ; fetch spell from book
+    rightClickRepeat(xGemCoordinate, yGemCoordinate, 5) ; forget gem
+    leftClickRepeat(xGemCoordinate, yGemCoordinate, 8) ; memorize spell in this gem
 
     output := "xGemCoordinate = " . xGemCoordinate
     output .= "`nyGemCoordinate = " . yGemCoordinate
@@ -84,17 +71,16 @@ class SpellBook {
   }
   
   clearGems() {
-    MsgBox % this.xOrigin
-    val2 := this.yOrigin
     clickBox(1, 8, 1, 30, this.xOrigin, this.yOrigin)
   }
 
   
   toString() {
-    output := "xOrigin = " . this.xOrigin
-    output .= "`nyOrigin = " . this.yOrigin
+    output := "SpellBook{"
+    output .= "xOrigin = " . this.xOrigin
+    output .= ", yOrigin = " . this.yOrigin
     output .= this.spellGemBar.toString()
-    return output
+    return output . "}"
 	}
 
 }

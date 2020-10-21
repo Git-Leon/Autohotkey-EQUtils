@@ -3,8 +3,9 @@
 
 class ShamanSpellBook {
 	__New(byref spellGemBar, spellBook) {
-		this.spellGems := new SpellGemBar(115, 665)
-		this.spellBook := new SpellBook(spellGems, 320,530) ; coordinate of top left corner of book
+		this.spellGems := spellGemBar
+		this.spellBook := spellBook ; coordinate of top left corner of book
+		spellBook.setSpellGemBar(spellGemBar)
 	}
 
 	gate() {
@@ -43,8 +44,9 @@ class ShamanSpellBook {
 	}
 
 	toString() {
-		output := "SpellGems = " . this.spellGems.toString()
-		output .= "SpellBook = " . this.spellBook.toString()
-		return output
+		output := "ShamanSpellBook{"
+		output .= this.spellGems.toString()
+		output .= this.spellBook.toString()
+		return output . "}"
 	}
 }

@@ -1,7 +1,3 @@
-myInstance := new Person("Leon", "Hunter", 24)
-MsgBox % myInstance.toString()
-
-
 class SpellGem {
     __New(xCoordinate, yCoordinate) {
         this.xCoordinate := %xCoordinate%
@@ -15,4 +11,10 @@ class SpellGem {
     getCoordinateY() {
         return this.yCoordinate
     }
+
+    toString() {
+        output := "xCoordinate = " . this.getCoordinateX()
+        output .= "yCoordinate = " . this.getCoordinateY()
+        return output
+	}
 }

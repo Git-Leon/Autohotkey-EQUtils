@@ -1,11 +1,13 @@
 #SingleInstance Force
 #Include ../../EQUtilsCommandLine.ahk
 #Include ../../EQUtilsClick.ahk
+#Include ./SpellGemBar.ahk
 
 ^F3:: ; TESTS
-  myInstance := new SpellBook(285,400); coordinate of top left corner of book
+  myInstance := new SpellBook(285,400) ; coordinate of top left corner of book
   ;myInstance.goToLastPage()
-  ;myInstance.clearGems()
+  ;myInstance.memorizeSpell(1, 1, 1)
+  MsgBox % myInstance.toString()
 
   return
 
@@ -15,7 +17,7 @@
 
 
 class SpellBook {
-	__New(xOrigin, yOrigin) {
+	__New(byref xOrigin, yOrigin) {
     this.xOrigin := %xOrigin%
     this.yOrigin := %yOrigin%
 	}
@@ -45,7 +47,7 @@ class SpellBook {
   }
   
   memorizeSpell(byref gemNumber, rowNumber, columnNumber) {
-    gem := spellGemBar.getGem(gemNumber);
+    gem := spellGemBar.getGem(gemNumber)
     xGemCoordinate := gem.getCoordinateX()
     yGemCoordinate := gem.getCoordinateY()
 
@@ -55,12 +57,13 @@ class SpellBook {
     xOffsetPerColumn := 85
     yOffsetPerRow := 65
 
-    xOffset := xInitialOffset + (columnNumber * xOffsetPerColumn)
-    yOffset := yInitialOffset + (columnNumber * yOffsetPerRow)
+    xOffset := xInitialOffset + (%columnNumber% * xOffsetPerColumn)
+    yOffset := yInitialOffset + (%rowNumber% * yOffsetPerRow)
 
     xCoordinateOfSpell := this.xOrigin + xOffset
     yCoordinateOfSpell := this.yOrigin + yOffset
 
+    this.openBook()
     leftClick(xCoordinateOfSpell, yCoordinateOfSpell)
     leftClick(xGemCoordinate, yGemCoordinate)
   }
@@ -70,5 +73,13 @@ class SpellBook {
     val2 := this.yOrigin
     clickBox(1, 8, 1, 30, this.xOrigin, this.yOrigin)
   }
+
+  
+  toString() {
+    output := "xOrigin = " . this.xOrigin
+    output .= "yOrigin = " . this.yOrigin
+    output .= this.spellGems.toString()
+    return output
+	}
 
 }

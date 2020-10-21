@@ -13,8 +13,8 @@ class SpellGem {
     }
 
     toString() {
-        output := "xCoordinate = " . this.getCoordinateX()
-        output .= "yCoordinate = " . this.getCoordinateY()
+        output := "`n`nxCoordinate = " . this.getCoordinateX()
+        output .= "`nyCoordinate = " . this.getCoordinateY()
         return output
 	}
 }

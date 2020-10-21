@@ -29,7 +29,6 @@ class SpellGemBar {
             gemStr := gem.toString()
             output .= gemStr
         }
-        MsgBox % output
         return output
 	}
 }

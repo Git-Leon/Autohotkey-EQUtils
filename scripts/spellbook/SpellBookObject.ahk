@@ -6,11 +6,10 @@
 ^F3:: ; TESTS
   spellGems := new SpellGemBar(115, 665)
   myInstance := new SpellBook(spellGems, 320,530) ; coordinate of top left corner of book
-  myInstance.goToLastPage()
-  myInstance.goToFirstPage()
+  ; myInstance.goToLastPage()
+  ; myInstance.goToFirstPage()
   myInstance.memorizeSpell(1, 1, 1)
   
-  MsgBox % myInstance.toString()
   return
 
 ^+F3:: ; CTRL + Shift + F3 to restart
@@ -26,26 +25,26 @@ class SpellBook {
 	}
 
   memorizeSpell(byref gemNumber, rowNumber, columnNumber) {
-    gem := this.spellGemBar.getGem(gemNumber)
-    xGemCoordinate := gem.getCoordinateX()
-    yGemCoordinate := gem.getCoordinateY()
-
+    this.openBook()
     xInitialOffset := 60
     yInitialOffset := 30
 
     xOffsetPerColumn := 85
     yOffsetPerRow := 65
 
-    xOffset := xInitialOffset + (columnNumber * xOffsetPerColumn)
-    yOffset := yInitialOffset + (rowNumber * yOffsetPerRow)
+    xOffset := xInitialOffset + (columnNumber * (xOffsetPerColumn-1))
+    yOffset := yInitialOffset + (rowNumber * (yOffsetPerRow-1))
 
     xCoordinateOfSpell := this.xOrigin + xOffset
     yCoordinateOfSpell := this.yOrigin + yOffset
 
-    this.openBook()
+    gem := this.spellGemBar.getGem(gemNumber)
+    xGemCoordinate := gem.getCoordinateX()
+    yGemCoordinate := gem.getCoordinateY()
+
     leftClick(xCoordinateOfSpell, yCoordinateOfSpell) ; fetch spell from book
-    ; rightClick(xGemCoordinate, yGemCoordinate) ; forget gem
-    ; leftClick(xGemCoordinate, yGemCoordinate) ; memorize spell in this gem
+    rightClick(xGemCoordinate, yGemCoordinate) ; forget gem
+    leftClick(xGemCoordinate, yGemCoordinate) ; memorize spell in this gem
 
     output := "xGemCoordinate = " . xGemCoordinate
     output .= "`nyGemCoordinate = " . yGemCoordinate

@@ -1,4 +1,4 @@
-#Include ./SpellGem.ahk
+#Include ../spellbook/SpellGem.ahk
 
 class SpellGemBar {
 	__New(xCoordinate, yCoordinate) {

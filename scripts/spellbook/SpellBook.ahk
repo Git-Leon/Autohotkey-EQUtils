@@ -36,12 +36,6 @@ class SpellBook {
     rightClickRepeat(xGemCoordinate, yGemCoordinate, 5) ; forget gem
     leftClickRepeat(xCoordinateOfSpell, yCoordinateOfSpell, 8) ; fetch spell from book    
     leftClickRepeat(xGemCoordinate, yGemCoordinate, 15) ; memorize spell in this gem
-
-    output := "xGemCoordinate = " . xGemCoordinate
-    output .= "`nyGemCoordinate = " . yGemCoordinate
-    output .= "`nxCoordinateOfSpell = " . xCoordinateOfSpell
-    output .= "`nyCoordinateOfSpell = " . yCoordinateOfSpell
-    ; MsgBox % output
   }
 
   openBook() {

@@ -1,7 +1,7 @@
 class SpellGem {
     __New(xCoordinate, yCoordinate) {
-        this.xCoordinate := %xCoordinate%
-        this.yCoordinate := %yCoordinate%
+        this.xCoordinate := xCoordinate
+        this.yCoordinate := yCoordinate
     }
 
     getCoordinateX() {

@@ -2,8 +2,8 @@
 
 class SpellGemBar {
 	__New(xCoordinate, yCoordinate) {
-        this.xCoordinate := %xCoordinate%
-        this.yCoordinate := %yCoordinate%
+        this.xCoordinate := xCoordinate
+        this.yCoordinate := yCoordinate
         this.spellGems := []
         Loop, 8 {
             spellNumber := 0

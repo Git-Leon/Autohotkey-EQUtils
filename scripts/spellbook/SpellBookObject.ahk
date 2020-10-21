@@ -4,7 +4,8 @@
 #Include ./SpellGemBar.ahk
 
 ^F3:: ; TESTS
-  myInstance := new SpellBook(285,400) ; coordinate of top left corner of book
+  spellGems := new SpellGemBar(115, 665)
+  myInstance := new SpellBook(spellGems, 285,400) ; coordinate of top left corner of book
   ;myInstance.goToLastPage()
   ;myInstance.memorizeSpell(1, 1, 1)
   MsgBox % myInstance.toString()
@@ -17,9 +18,10 @@
 
 
 class SpellBook {
-	__New(byref xOrigin, yOrigin) {
-    this.xOrigin := %xOrigin%
-    this.yOrigin := %yOrigin%
+	__New(byref spellGemBar, xOrigin, yOrigin) {
+    this.spellGemBar := spellGemBar
+    this.xOrigin := xOrigin
+    this.yOrigin := yOrigin
 	}
 
   openBook() {

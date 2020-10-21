@@ -4,11 +4,9 @@
 
 ^F2:: ; TESTS
   spellGems := new SpellGemBar(115, 665)
-  MsgBox % spellGems.toString()
   spellBook := new SpellBook(spellGems, 320,530) ; coordinate of top left corner of book
-  MsgBox % spellBook.toString()
   shamanSpellBook := new ShamanSpellBook(spellGems, spellBook)
-  MsgBox % shamanSpellBook.toString()
+
   shamanSpellBook.gate()
   shamanSpellBook.sow()
   shamanSpellBook.healing()

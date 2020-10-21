@@ -5,9 +5,6 @@ class ShamanSpellBook {
 	__New(byref spellGemBar, spellBook) {
 		this.spellGems := new SpellGemBar(115, 665)
 		this.spellBook := new SpellBook(spellGems, 320,530) ; coordinate of top left corner of book
-		; myInstance.goToLastPage()
-		; myInstance.goToFirstPage()
-		this.myInstance.memorizeSpell(1, 1, 1)
 	}
 
 	gate() {

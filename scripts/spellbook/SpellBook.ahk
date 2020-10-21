@@ -51,14 +51,12 @@ class SpellBook {
     leftClick(xGemCoordinate, yGemCoordinate) ; memorize spell in this gem
     leftClick(xGemCoordinate, yGemCoordinate) ; memorize spell in this gem
     
-    wait(2)
-    
 
     output := "xGemCoordinate = " . xGemCoordinate
     output .= "`nyGemCoordinate = " . yGemCoordinate
     output .= "`nxCoordinateOfSpell = " . xCoordinateOfSpell
     output .= "`nyCoordinateOfSpell = " . yCoordinateOfSpell
-    MsgBox % output
+    ; MsgBox % output
   }
 
   openBook() {

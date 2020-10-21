@@ -80,7 +80,7 @@ class SpellBook {
   toString() {
     output := "xOrigin = " . this.xOrigin
     output .= "yOrigin = " . this.yOrigin
-    output .= this.spellGems.toString()
+    output .= this.spellGemBar.toString()
     return output
 	}
 

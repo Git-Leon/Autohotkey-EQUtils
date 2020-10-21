@@ -6,7 +6,6 @@
 
 class SpellBook {
 	__New(byref spellGemBar, xOrigin, yOrigin) {
-    ; MsgBox % "New SpellBook" . spellGemBar.toString()
     this.spellGemBar := spellGemBar
     this.xOrigin := xOrigin
     this.yOrigin := yOrigin
@@ -17,8 +16,8 @@ class SpellBook {
   }
 
   memorizeSpell(byref gemNumber, rowNumber, columnNumber) {
-    xInitialOffset := 65
-    yInitialOffset := 35
+    xInitialOffset := 70
+    yInitialOffset := 40
 
     xOffsetPerColumn := 85
     yOffsetPerRow := 65
@@ -34,10 +33,9 @@ class SpellBook {
     xGemCoordinate := gem.getCoordinateX()
     yGemCoordinate := gem.getCoordinateY()
 
-    this.openBook()
-    leftClickRepeat(xCoordinateOfSpell, yCoordinateOfSpell, 8) ; fetch spell from book
     rightClickRepeat(xGemCoordinate, yGemCoordinate, 5) ; forget gem
-    leftClickRepeat(xGemCoordinate, yGemCoordinate, 8) ; memorize spell in this gem
+    leftClickRepeat(xCoordinateOfSpell, yCoordinateOfSpell, 8) ; fetch spell from book    
+    leftClickRepeat(xGemCoordinate, yGemCoordinate, 15) ; memorize spell in this gem
 
     output := "xGemCoordinate = " . xGemCoordinate
     output .= "`nyGemCoordinate = " . yGemCoordinate
@@ -63,10 +61,10 @@ class SpellBook {
 
   goToPage(byref number) {
     this.goToFirstPage()
-    if(number&1) { ; if even
-      rightArrow(number / 2)
+    if(number&1) { ; if even    
+      rightArrow(Ceil((number/2) - 1))
     } else { ; if odd
-      rightArrow( (number/2) - 1)
+      rightArrow(Ceil(number / 2))    
     }
   }
   

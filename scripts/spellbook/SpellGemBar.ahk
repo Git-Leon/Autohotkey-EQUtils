@@ -8,8 +8,8 @@ class SpellGemBar {
         spellNumber := 0
         Loop, 8 {            
             spellNumber++
-            spellGemY := yCoordinate + 10 + (30 * (spellNumber-1))
-            spellGemX := xCoordinate + 20
+            spellGemY := yCoordinate + 15 + (30 * (spellNumber-1))
+            spellGemX := xCoordinate + 40
             spellGem := new SpellGem(spellGemX, spellGemY)
             this.spellGems.Push(spellGem)
         }

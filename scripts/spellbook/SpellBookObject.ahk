@@ -43,8 +43,16 @@ class SpellBook {
     yGemCoordinate := gem.getCoordinateY()
 
     leftClick(xCoordinateOfSpell, yCoordinateOfSpell) ; fetch spell from book
+    leftClick(xCoordinateOfSpell, yCoordinateOfSpell) ; fetch spell from book
+
     rightClick(xGemCoordinate, yGemCoordinate) ; forget gem
+    rightClick(xGemCoordinate, yGemCoordinate) ; forget gem
+
     leftClick(xGemCoordinate, yGemCoordinate) ; memorize spell in this gem
+    leftClick(xGemCoordinate, yGemCoordinate) ; memorize spell in this gem
+    
+    wait(2)
+    
 
     output := "xGemCoordinate = " . xGemCoordinate
     output .= "`nyGemCoordinate = " . yGemCoordinate

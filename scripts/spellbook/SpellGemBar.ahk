@@ -1,5 +1,3 @@
-#Include ./SpellGem.ahk
-
 class SpellGemBar {
 	__New(xCoordinate, yCoordinate) {
         this.xCoordinate := xCoordinate

@@ -7,10 +7,12 @@
   spellBook := new SpellBook(spellGems, 320,530) ; coordinate of top left corner of book
   shamanSpellBook := new ShamanSpellBook(spellGems, spellBook)
 
-  shamanSpellBook.gate()
-  shamanSpellBook.sow()
-  shamanSpellBook.healing()
-  shamanSpellBook.root()
-  shamanSpellBook.slow()
-  shamanSpellBook.poison()
+  shamanSpellBook.goToLastPage()
+  shamanSpellBook.goToFirstPage()
+  ;shamanSpellBook.gate()
+  ;shamanSpellBook.sow()
+  ;shamanSpellBook.healing()
+  ;shamanSpellBook.root()
+  ;shamanSpellBook.slow()
+  ;shamanSpellBook.poison()
   

@@ -155,7 +155,7 @@ _sendKeys(byref text, postDelay){
 }
 
 wait(byref duration) {
-	sendKeys("/;Waiting 90 seconds",90)
+	sendKeys("/;Waiting " . duration . " seconds", duration)
 }
 
 waitForEverQuest() {

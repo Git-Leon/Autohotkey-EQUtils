@@ -26,14 +26,14 @@ class SpellBook {
 
   memorizeSpell(byref gemNumber, rowNumber, columnNumber) {
     this.openBook()
-    xInitialOffset := 60
-    yInitialOffset := 30
+    xInitialOffset := 65
+    yInitialOffset := 35
 
     xOffsetPerColumn := 85
     yOffsetPerRow := 65
 
-    xOffset := xInitialOffset + (columnNumber * (xOffsetPerColumn-1))
-    yOffset := yInitialOffset + (rowNumber * (yOffsetPerRow-1))
+    xOffset := xInitialOffset + ((columnNumber-1)* xOffsetPerColumn)
+    yOffset := yInitialOffset + ((rowNumber-1) * yOffsetPerRow)
 
     xCoordinateOfSpell := this.xOrigin + xOffset
     yCoordinateOfSpell := this.yOrigin + yOffset

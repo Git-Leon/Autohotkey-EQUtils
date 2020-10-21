@@ -1,6 +1,7 @@
 #SingleInstance Force
 #Include ../../EQUtilsCommandLine.ahk
 #Include ../../EQUtilsClick.ahk
+#Include ./SpellGemBar.ahk
 
 ^F3:: ; TESTS
   spellGems := new SpellGemBar(115, 665)

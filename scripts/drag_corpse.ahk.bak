@@ -3,7 +3,7 @@
 ^F3::
 	dragCorpse() {
 		Loop {
-			sendKeys("/corpse", .3)
+			sendKeys("/corpse", .2)
 		}
 	}
 	dragCorpse()

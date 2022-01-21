@@ -102,6 +102,15 @@ say(byref text) {
 	sendKeys("/say " text, 0)
 }
 
+
+castSitLoopTargetNearestPC(byref spellNumber, castDelay, sitDuration, loopCount) {	
+	targetNearestPC()
+	stand()
+	sit(0)
+	castSitLoop(spellNumber,castDelay, sitDuration, loopCount)	
+}
+
+
 castSitLoop(byref number, castDelay, sitDuration, loopCount) {
 	Loop, %loopCount% {
 		castSit(number, castDelay, sitDuration)
